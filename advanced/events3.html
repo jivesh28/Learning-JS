@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: aliceblue ;">
+    <h1>Chai aur JS</h1>
+    <button id="stop">stop</button>
+    <button id="start">start</button>
+</body>
+<script>
+   const say= (str)=>{
+    console.log(str,Date.now());
+ }
+ let interval=0;
+ const startInterval=()=>{
+    if(!interval) {
+        interval=setInterval(say,100,'hi') ;
+    }
+ } 
+
+ const stopInterval=()=>{
+    if(interval) {
+        interval=clearInterval(interval);
+    }
+ }
+ document.querySelector('#start').addEventListener('click',startInterval);
+ document.querySelector('#stop').addEventListener('click',stopInterval);
+</script>
+</html>

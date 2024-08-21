@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName)
+    {
+        const item= document.createElement('li');
+        item.innerHTML=`${langName}`; // full traversing dont usee
+        document.querySelector('.language').appendChild(item);
+    }
+    addLanguage('python');
+    addLanguage('typeScript');
+    // optimised approach
+    function addOptiLanguage(langName){
+        const item= document.createElement('li');
+        const text=document.createTextNode(langName)
+        item.appendChild(text); // use
+        document.querySelector('.language').appendChild(item);
+    }
+    addOptiLanguage('goLang');
+
+    //Editing values
+    const second=document.querySelector('li:nth-child(2)');
+    //second.innerHTML='mojo';
+    const list=document.createElement('li'); // poora naya element ban ke replace karaya
+    list.textContent='mojo';
+    second.replaceWith(list);
+    // edit
+    const first= document.querySelector("li:first-child");
+    first.outerHTML='<li>see water </li>'
+    // remove
+   const last = document.querySelector("li:last-child");
+    last.remove();
+
+</script>
+</html>
